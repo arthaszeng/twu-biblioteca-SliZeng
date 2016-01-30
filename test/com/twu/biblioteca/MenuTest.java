@@ -99,7 +99,8 @@ public class MenuTest {
         bibliotecaApp.checkout("98794");
         bibliotecaApp.showAllBooks();
 
-        verify(console, times(2)).print("Thank you! Enjoy the book.\n");
+        verify(console, times(0)).print("Thank you! Enjoy the book.\n");
+        verify(console, times(2)).print("That book is not available\n");
         verify(console, times(1)).print("Lean Thinking\n");
         verify(console, times(1)).print("Clean Code\n");
 

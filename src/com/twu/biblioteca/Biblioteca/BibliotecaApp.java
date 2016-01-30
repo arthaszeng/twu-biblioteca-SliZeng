@@ -58,8 +58,11 @@ public class BibliotecaApp {
     }
 
     public void checkout(String isbn) {
-        console.print("Thank you! Enjoy the book.\n");
-
+        if (booksMap.containsKey(isbn) && !checkedBooksMap.containsKey(isbn)) {
+            console.print("Thank you! Enjoy the book.\n");
+        }else {
+            console.print("That book is not available\n");
+        }
         checkedBooksMap.put(isbn, booksMap.get(isbn));
     }
 
