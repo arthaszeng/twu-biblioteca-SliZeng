@@ -12,9 +12,10 @@ public class Console {
         System.out.println(message);
     }
 
-    public void scanner(StringBuffer buf) throws IOException {
+    public void scanner(String buf) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        scanner(buf);
+        String result = scanner.next();
+        buf = result;
     }
 
     public void showWelcome(){

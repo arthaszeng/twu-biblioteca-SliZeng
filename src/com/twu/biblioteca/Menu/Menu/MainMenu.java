@@ -2,11 +2,10 @@ package Menu.Menu;
 
 import Console.Console;
 import Format.MenuFormat;
-import Library.Book;
-import Menu.Option.CheckOutOption;
 import Menu.Option.ErrorOption;
-import Menu.Option.Option;
 import Menu.Option.ListBooksOption;
+import Menu.Option.Option;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,12 +47,8 @@ public class MainMenu {
         return selectedOption == null ? new ErrorOption(console) : selectedOption;
     }
 
-
-    public void addOption(CheckOutOption checkOutOption) {
-        optionsMap.put(String.valueOf(checkOutOption.getName().charAt(0)).toUpperCase(), checkOutOption);
+    public void addOption(Option option) {
+        optionsMap.put(String.valueOf(option.getName().charAt(0)).toUpperCase(), option);
     }
 
-    public void checkout(Book book) {
-        print("Thank you! Enjoy the book.\n");
-    }
 }

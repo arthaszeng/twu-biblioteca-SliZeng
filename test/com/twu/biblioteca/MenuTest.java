@@ -1,6 +1,5 @@
 import Biblioteca.BibliotecaApp;
 import Console.Console;
-import Library.Book;
 import Menu.Menu.MainMenu;
 import Menu.Option.CheckOutOption;
 import Menu.Option.Option;
@@ -9,9 +8,9 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.isA;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class MenuTest {
     private Console console;
@@ -65,7 +64,7 @@ public class MenuTest {
     @Test
     public void testAddOption() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
-        mainMenu.addOption(new CheckOutOption());
+        mainMenu.addOption(new CheckOutOption(console));
         mainMenu.showOptions();
 
         verify(console).print("[ L ] List Books\t");
@@ -74,12 +73,36 @@ public class MenuTest {
 
 
     @Test
-    public void testCheckBook() throws Exception {
+    public void testCheckoutBookSuccessful() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
-        mainMenu.addOption(new CheckOutOption());
-        Book book = new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01");
+        mainMenu.addOption(new CheckOutOption(console));
 
-        mainMenu.checkout(book);
-        verify(console).print("Thank you! Enjoy the book.\n");
+        assertEquals(mainMenu.selectOption("c").getClass(), CheckOutOption.class);
+
+        bibliotecaApp.checkout("000001");
+        bibliotecaApp.checkout("000002");
+        bibliotecaApp.showAllBooks();
+
+        verify(console, times(2)).print("Thank you! Enjoy the book.\n");
+        verify(console, times(0)).print("Lean Thinking\n");
+        verify(console, times(0)).print("Clean Code\n");
+    }
+
+    @Test
+    public void testCheckoutBookFailed() throws Exception {
+        MainMenu mainMenu = new MainMenu(console);
+        mainMenu.addOption(new CheckOutOption(console));
+
+        assertNotEquals(mainMenu.selectOption("a").getClass(), CheckOutOption.class);
+
+        bibliotecaApp.checkout("wrong");
+        bibliotecaApp.checkout("98794");
+        bibliotecaApp.showAllBooks();
+
+        verify(console, times(2)).print("Thank you! Enjoy the book.\n");
+        verify(console, times(1)).print("Lean Thinking\n");
+        verify(console, times(1)).print("Clean Code\n");
+
+
     }
 }
