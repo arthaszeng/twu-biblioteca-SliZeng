@@ -9,25 +9,34 @@ import static org.junit.Assert.assertEquals;
 
 public class ConsoleTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    Console console;
+//    private byte[] buffer = {'a','b','c'};
+//    private final ByteArrayInputStream inConten = new ByteArrayInputStream(buffer);
+    private Console console;
 
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
+//        System.setIn(inConten);
         console = new Console();
     }
 
     @Test
     public void testPrint() throws Exception {
-        Console console = new Console();
         console.print("Welcome");
 
         assertEquals("Welcome", outContent.toString());
     }
+//
+//    @Test
+//    public void testScaner() throws Exception {
+//        String stringBufffer = "";
+//        console.scanner(stringBufffer);
+//
+//        assertEquals("abc", stringBufffer);
+//    }
 
     @Test
     public void testPrintln() throws Exception {
-        Console console = new Console();
         console.println("Welcome");
 
         assertEquals("Welcome\n", outContent.toString());
@@ -39,5 +48,6 @@ public class ConsoleTest {
 
         assertEquals("Welcome\n", outContent.toString());
     }
+
 
 }

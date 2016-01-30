@@ -31,4 +31,9 @@ public class MenuTest {
 
         verify(console).print("[ L ] List Book\t");
     }
+
+    @Test
+    public void testSelectOption() throws Exception {
+
+    }
 }
