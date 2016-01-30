@@ -4,7 +4,7 @@ import Console.Console;
 import Format.BookFormat;
 import Library.Book;
 import Library.BooksRepository;
-import Menu.MainMenu;
+import Menu.Menu.MainMenu;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

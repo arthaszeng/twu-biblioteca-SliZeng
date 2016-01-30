@@ -1,8 +1,11 @@
-package Menu;
+package Menu.Menu;
 
 import Console.Console;
 import Format.MenuFormat;
-
+import Menu.Option.CheckOutOption;
+import Menu.Option.ErrorOption;
+import Menu.Option.Option;
+import Menu.Option.ListBooksOption;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +31,7 @@ public class MainMenu {
         for (Object o : optionsMap.entrySet()) {
             Map.Entry s = (Map.Entry)o;
             Option option = (Option) s.getValue();
-            print(MenuFormat.format((option.name) + "\t"));
+            print(MenuFormat.format((option.getName()) + "\t"));
         }
         System.out.println();
     }
@@ -45,5 +48,6 @@ public class MainMenu {
     }
 
 
-
+    public void addOption(CheckOutOption checkOutOption) {
+    }
 }

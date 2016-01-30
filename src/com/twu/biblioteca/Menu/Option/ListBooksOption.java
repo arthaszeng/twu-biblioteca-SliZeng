@@ -1,4 +1,4 @@
-package Menu;
+package Menu.Option;
 
 import Biblioteca.BibliotecaApp;
 
@@ -12,3 +12,4 @@ public class ListBooksOption extends Option {
         bibliotecaApp.showAllBooksDetails();
     }
 }
+

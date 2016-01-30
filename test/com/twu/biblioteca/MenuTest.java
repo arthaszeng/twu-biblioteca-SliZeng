@@ -1,7 +1,8 @@
 import Biblioteca.BibliotecaApp;
 import Console.Console;
-import Menu.MainMenu;
-import Menu.Option;
+import Menu.Menu.MainMenu;
+import Menu.Option.CheckOutOption;
+import Menu.Option.Option;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,6 +36,7 @@ public class MenuTest {
         mainMenu.showOptions();
 
         verify(console).print("[ L ] List Books\t");
+
     }
 
     @Test
@@ -46,8 +48,8 @@ public class MenuTest {
 
     @Test
     public void testInvalidOption() throws Exception {
-        assertThat(mainMenu.selectOption("a"), isA(Option.class));
 
+        assertThat(mainMenu.selectOption("a"), isA(Option.class));
         assertEquals("ErrorOption", mainMenu.selectOption("b").getName());
     }
 
@@ -58,4 +60,24 @@ public class MenuTest {
         verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
         verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
     }
+
+    @Test
+    public void testAddOption() throws Exception {
+        MainMenu mainMenu = new MainMenu(console);
+        mainMenu.addOption(new CheckOutOption());
+        mainMenu.showOptions();
+
+        verify(console).print("[ L ] List Books\t");
+        verify(console).print("[ C ] Check out\t");
+    }
+
+    //
+//    @Test
+//    public void testCheckBook() throws Exception {
+//
+//        assertThat(mainMenu.selectOption("l"), isA(Option.class));
+//
+//        assertEquals(mainMenu.selectOption("l").getName(), "List Books");
+//
+//    }
 }
