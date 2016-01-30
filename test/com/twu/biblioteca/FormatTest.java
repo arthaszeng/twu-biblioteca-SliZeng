@@ -3,8 +3,8 @@ import Format.MenuFormat;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class FormatTest {
     private MenuFormat menuFormat;
@@ -18,8 +18,7 @@ public class FormatTest {
 
     @Test
     public void testMenuFormat() throws Exception {
-        menuFormat.format("List Books");
 
-        verify(console).print("[ L ] List Books");
+        assertEquals("[ L ] List Books", menuFormat.format("List Books"));
     }
 }

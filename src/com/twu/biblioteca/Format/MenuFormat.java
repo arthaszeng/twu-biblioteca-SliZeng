@@ -9,8 +9,7 @@ public class MenuFormat {
         this.console = console;
     }
 
-    public void format(String message) {
-        String buffer = String.format("[ %c ] %s", message.charAt(0), message);
-        console.print(buffer);
+    public static String format(String message) {
+        return String.format("[ %c ] %s", message.charAt(0), message);
     }
 }

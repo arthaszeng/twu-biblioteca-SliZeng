@@ -1,8 +1,10 @@
 package Menu;
 
 import Console.*;
+import Format.MenuFormat;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class MainMenu {
@@ -22,6 +24,9 @@ public class MainMenu {
     }
 
     public void showOptions() {
-        print("[ L ] List Books");
+        for (Iterator i = options.iterator(); i.hasNext();) {
+            print(MenuFormat.format(i.next().toString()) + "\t");
+        }
+        System.out.println();
     }
 }
