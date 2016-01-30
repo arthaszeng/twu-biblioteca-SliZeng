@@ -46,8 +46,8 @@ public class MenuTest {
 
     @Test
     public void testInvalidOption() throws Exception {
-
         assertThat(mainMenu.selectOption("a"), isA(Option.class));
+
         assertEquals("ErrorOption", mainMenu.selectOption("b").getName());
     }
 
