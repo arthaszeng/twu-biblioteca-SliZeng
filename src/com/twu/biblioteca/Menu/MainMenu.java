@@ -16,7 +16,7 @@ public class MainMenu {
 
     public MainMenu(Console console) {
         this.console = console;
-        optionsMap.put("L", new Option("List Books"));
+        optionsMap.put("L", new ListBooksOption("List Books"));
     }
 
     public void showCurrentMenu() {
@@ -39,4 +39,7 @@ public class MainMenu {
         selectedOption = optionsMap.get(symble);
         return selectedOption;
     }
+
+
+
 }

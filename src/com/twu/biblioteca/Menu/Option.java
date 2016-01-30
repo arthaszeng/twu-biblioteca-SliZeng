@@ -1,7 +1,10 @@
 package Menu;
 
+import Biblioteca.BibliotecaApp;
+
 public class Option {
-    String name;
+    protected String name;
+
 
     public Option(String name) {
         this.name = name;
@@ -9,5 +12,9 @@ public class Option {
 
     public String getName() {
         return name;
+    }
+
+    public void operate(BibliotecaApp bibliotecaApp) {
+
     }
 }

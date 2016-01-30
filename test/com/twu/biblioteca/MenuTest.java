@@ -1,3 +1,4 @@
+import Biblioteca.BibliotecaApp;
 import Console.Console;
 import Menu.MainMenu;
 import Menu.Option;
@@ -39,10 +40,22 @@ public class MenuTest {
     @Test
     public void testSelectOption() throws Exception {
         assertThat(mainMenu.selectOption("l"), isA(Option.class));
+
         assertEquals(mainMenu.selectOption("l").getName(), "List Books");
+    }
 
+    @Test
+    public void testInvalidOption() throws Exception {
+        assertThat(mainMenu.selectOption("l"), isA(Option.class));
 
-//        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
-//        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
+        verify(console).print("Selected an invalid option. Please re-enter");
+    }
+
+    @Test
+    public void testOperate() throws Exception {
+        Option option = mainMenu.selectOption("l");
+        option.operate(bibliotecaApp);
+        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
+        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
     }
 }
