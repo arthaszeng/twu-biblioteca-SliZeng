@@ -71,13 +71,15 @@ public class MenuTest {
         verify(console).print("[ C ] Check out\t");
     }
 
-    //
-//    @Test
-//    public void testCheckBook() throws Exception {
-//
-//        assertThat(mainMenu.selectOption("l"), isA(Option.class));
-//
-//        assertEquals(mainMenu.selectOption("l").getName(), "List Books");
-//
-//    }
+
+    @Test
+    public void testCheckBook() throws Exception {
+        MainMenu mainMenu = new MainMenu(console);
+        mainMenu.addOption(new CheckOutOption());
+
+        assertThat(mainMenu.selectOption("C"), isA(Option.class));
+        assertEquals(mainMenu.selectOption("C").getName(), "Check out");
+
+
+    }
 }

@@ -49,5 +49,6 @@ public class MainMenu {
 
 
     public void addOption(CheckOutOption checkOutOption) {
+        optionsMap.put(String.valueOf(checkOutOption.getName().charAt(0)).toUpperCase(), checkOutOption);
     }
 }
