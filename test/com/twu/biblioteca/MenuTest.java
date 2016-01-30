@@ -4,9 +4,7 @@ import Menu.MainMenu;
 import Menu.Option;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.internal.matchers.Null;
 
-import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.Is.isA;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -49,9 +47,8 @@ public class MenuTest {
     @Test
     public void testInvalidOption() throws Exception {
 
-        assertThat(mainMenu.selectOption("a"), is(Null.NULL));
-
-        verify(console).print("Selected an invalid option. Please re-enter\n");
+        assertThat(mainMenu.selectOption("a"), isA(Option.class));
+        assertEquals("ErrorOption", mainMenu.selectOption("b").getName());
     }
 
     @Test
