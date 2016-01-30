@@ -22,6 +22,6 @@ public class MainMenu {
     }
 
     public void showOptions() {
-        print("[ L ] List Books\n");
+        print("[ L ] List Books");
     }
 }
