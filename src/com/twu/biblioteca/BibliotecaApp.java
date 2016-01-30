@@ -1,4 +1,5 @@
 import Console.Console;
+import Format.BookFormat;
 import Library.Book;
 import Library.BooksRepository;
 import Menu.MainMenu;
@@ -30,7 +31,11 @@ public class BibliotecaApp {
 
 
     public void showAllBooksDetails() {
-        console.print("Lean Thinking\tJames P. Womack\t2003-06-01\t000001");
-        console.print("Clean Code\tJames P. Womack\t2003-06-01\t000002");
+        ListIterator<Map.Entry<String,Book>> iterator = new ArrayList<Map.Entry<String,Book>>
+                (booksMap.entrySet()).listIterator(booksMap.size());
+
+        while(iterator.hasPrevious()) {
+            console.print(BookFormat.detailsFormat(iterator.previous().getValue()) + "\n");
+        }
     }
 }

@@ -31,8 +31,8 @@ public class BibliotecaTest {
     public void testShowAllBooksDetails() throws Exception {
         bibliotecaApp.showAllBooksDetails();
 
-        verify(console).print("Lean Thinking\tJames P. Womack\t2003-06-01\t000001");
-        verify(console).print("Clean Code\tJames P. Womack\t2003-06-01\t000002");
+        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
+        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
     }
 }
 
