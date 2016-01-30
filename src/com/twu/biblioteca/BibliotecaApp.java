@@ -25,12 +25,11 @@ public class BibliotecaApp {
 
 
     public void showAllBooks() {
-        ListIterator<Map.Entry<String,Book>> i=new ArrayList<Map.Entry<String,Book>>
+        ListIterator<Map.Entry<String,Book>> iterator = new ArrayList<Map.Entry<String,Book>>
                 (booksMap.entrySet()).listIterator(booksMap.size());
 
-        while(i.hasPrevious()) {
-            console.print(i.previous().getValue().getName() + "\n");
+        while(iterator.hasPrevious()) {
+            console.print(iterator.previous().getValue().getName() + "\n");
         }
-
     }
 }

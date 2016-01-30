@@ -7,6 +7,7 @@ public class BooksRepository {
 
     public void repositoryInit() {
         booksMap.put("000001", new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01"));
+        booksMap.put("000002", new Book("000002", "Clean Code", "James P. Womack", "2003-06-01"));
     }
 
     public LinkedHashMap<String,Book> getBooks() {

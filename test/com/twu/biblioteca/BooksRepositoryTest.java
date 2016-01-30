@@ -11,7 +11,10 @@ public class BooksRepositoryTest {
     public void testGetBooks() throws Exception {
         BooksRepository booksRepository = new BooksRepository();
         booksRepository.repositoryInit();
+
         Map<String, Book> booksMap = booksRepository.getBooks();
+
         assertEquals(booksMap.get("000001").getName(), "Lean Thinking");
+        assertEquals(booksMap.get("000002").getName(), "Clean Code");
     }
 }
