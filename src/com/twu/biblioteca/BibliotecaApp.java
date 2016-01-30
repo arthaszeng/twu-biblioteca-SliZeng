@@ -29,4 +29,8 @@ public class BibliotecaApp {
     }
 
 
+    public void showAllBooksDetails() {
+        console.print("Lean Thinking\tJames P. Womack\t2003-06-01\t000001");
+        console.print("Clean Code\tJames P. Womack\t2003-06-01\t000002");
+    }
 }
