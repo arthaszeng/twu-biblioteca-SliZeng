@@ -7,7 +7,7 @@ public class Option {
         this.name = name;
     }
 
-    public void asd() {
-
+    public String getName() {
+        return name;
     }
 }

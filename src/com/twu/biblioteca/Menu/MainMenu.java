@@ -35,6 +35,8 @@ public class MainMenu {
 
     public Option selectOption(final String message) {
         String symble = message.toUpperCase();
-        return new Option("List Books");
+        Option selectedOption;
+        selectedOption = optionsMap.get(symble);
+        return selectedOption;
     }
 }
