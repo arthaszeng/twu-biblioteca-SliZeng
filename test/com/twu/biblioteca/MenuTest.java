@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.isA;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -73,37 +72,11 @@ public class MenuTest {
 
 
     @Test
-    public void testCheckoutBookSuccessful() throws Exception {
+    public void testCheckoutBook() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
         mainMenu.addOption(new CheckOutOption(console));
 
         assertEquals(mainMenu.selectOption("c").getClass(), CheckOutOption.class);
-
-        bibliotecaApp.checkout("000001");
-        bibliotecaApp.checkout("000002");
-        bibliotecaApp.showAllBooks();
-
-        verify(console, times(2)).print("Thank you! Enjoy the book.\n");
-        verify(console, times(0)).print("Lean Thinking\n");
-        verify(console, times(0)).print("Clean Code\n");
     }
 
-    @Test
-    public void testCheckoutBookFailed() throws Exception {
-        MainMenu mainMenu = new MainMenu(console);
-        mainMenu.addOption(new CheckOutOption(console));
-
-        assertNotEquals(mainMenu.selectOption("a").getClass(), CheckOutOption.class);
-
-        bibliotecaApp.checkout("wrong");
-        bibliotecaApp.checkout("98794");
-        bibliotecaApp.showAllBooks();
-
-        verify(console, times(0)).print("Thank you! Enjoy the book.\n");
-        verify(console, times(2)).print("That book is not available\n");
-        verify(console, times(1)).print("Lean Thinking\n");
-        verify(console, times(1)).print("Clean Code\n");
-
-
-    }
 }
