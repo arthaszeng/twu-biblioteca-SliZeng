@@ -1,4 +1,5 @@
 import Menu.MainMenu;
+import Console.*;
 
 public class BibliotecaApp {
     private final Console console;

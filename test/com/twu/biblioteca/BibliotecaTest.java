@@ -1,3 +1,4 @@
+import Console.Console;
 import Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,10 +10,12 @@ public class BibliotecaTest {
 
     private Console console;
     private BibliotecaApp bibliotecaApp;
+    private MainMenu mainMenu;
+
     @Before
     public void setUpStreams() {
         console= mock(Console.class);
-        bibliotecaApp = new BibliotecaApp(console,new MainMenu());
+        bibliotecaApp = new BibliotecaApp(console,new MainMenu(console));
     }
 
 
