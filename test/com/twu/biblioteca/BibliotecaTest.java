@@ -15,7 +15,8 @@ public class BibliotecaTest {
     @Before
     public void setUpStreams() {
         console= mock(Console.class);
-        bibliotecaApp = new BibliotecaApp(console,new MainMenu(console));
+        mainMenu = mock(MainMenu.class);
+        bibliotecaApp = new BibliotecaApp(console, mainMenu);
     }
 
 

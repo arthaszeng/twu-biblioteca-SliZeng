@@ -5,9 +5,7 @@ public class Console {
         System.out.print(message);
     }
 
-
     public void println(String message) {
         System.out.println(message);
     }
-
 }
