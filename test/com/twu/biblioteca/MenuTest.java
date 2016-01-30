@@ -1,5 +1,5 @@
+import Console.Console;
 import Menu.MainMenu;
-import Console.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,11 +29,15 @@ public class MenuTest {
     public void testShowOptions() throws Exception {
         mainMenu.showOptions();
 
-        verify(console).print("[ L ] List Book\t");
+        verify(console).print("[ L ] List Books\t");
     }
 
     @Test
     public void testSelectOption() throws Exception {
-
+        String symble = "l";
+//        assertEquals("List Books", mainMenu.selectOption(symble.toUpperCase()));
+        mainMenu.selectOption(symble);
+        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
+        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
     }
 }

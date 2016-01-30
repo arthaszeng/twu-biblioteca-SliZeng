@@ -3,13 +3,11 @@ package Menu;
 import Console.*;
 import Format.MenuFormat;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class MainMenu {
     private final Console console;
-    private static List<String> options = Arrays.asList("List Book");
+    private static Map<String, String> optionsMap = new HashMap<String, String>();
 
     private void print(String message) {
         console.print(message);
@@ -17,6 +15,7 @@ public class MainMenu {
 
     public MainMenu(Console console) {
         this.console = console;
+        optionsMap.put("L", "List Books");
     }
 
     public void showCurrentMenu() {
@@ -24,9 +23,15 @@ public class MainMenu {
     }
 
     public void showOptions() {
-        for (Iterator i = options.iterator(); i.hasNext();) {
-            print(MenuFormat.format(i.next().toString()) + "\t");
+
+        for (Object o : optionsMap.entrySet()) {
+            print(MenuFormat.format(((Map.Entry) o).getValue().toString()) + "\t");
         }
         System.out.println();
+    }
+
+    public String selectOption(final String message) {
+        String symble = message.toUpperCase();
+
     }
 }

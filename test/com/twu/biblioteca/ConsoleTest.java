@@ -9,8 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ConsoleTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//    private byte[] buffer = {'a','b','c'};
-//    private final ByteArrayInputStream inConten = new ByteArrayInputStream(buffer);
+
     private Console console;
 
     @Before
@@ -26,14 +25,6 @@ public class ConsoleTest {
 
         assertEquals("Welcome", outContent.toString());
     }
-//
-//    @Test
-//    public void testScaner() throws Exception {
-//        String stringBufffer = "";
-//        console.scanner(stringBufffer);
-//
-//        assertEquals("abc", stringBufffer);
-//    }
 
     @Test
     public void testPrintln() throws Exception {
