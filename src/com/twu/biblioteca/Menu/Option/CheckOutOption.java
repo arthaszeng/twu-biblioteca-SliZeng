@@ -1,15 +1,12 @@
 package Menu.Option;
 
 import Biblioteca.BibliotecaApp;
-import Console.Console;
 
 import java.util.Scanner;
 
 public class CheckOutOption extends Option{
-    private Console console;
-    public CheckOutOption(Console console) {
+    public CheckOutOption() {
         this.name = "Check out";
-        this.console = console;
     }
 
     @Override

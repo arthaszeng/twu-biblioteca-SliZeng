@@ -57,13 +57,15 @@ public class BibliotecaApp {
         }
     }
 
-    public void checkout(String isbn) {
+    public Boolean checkout(String isbn) {
         if (booksMap.containsKey(isbn) && !checkedBooksMap.containsKey(isbn)) {
             console.print("Thank you! Enjoy the book.\n");
         }else {
             console.print("That book is not available\n");
+            return false;
         }
         checkedBooksMap.put(isbn, booksMap.get(isbn));
+        return true;
     }
 
     public static void main(String args[]) {
@@ -71,10 +73,9 @@ public class BibliotecaApp {
         Console console = mock(Console.class);
 
         bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-        Book book = new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01");
 
         bibliotecaApp.menu.addOption(new ErrorOption(console));
-        bibliotecaApp.menu.addOption(new CheckOutOption(console));
+        bibliotecaApp.menu.addOption(new CheckOutOption());
 
         bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
         bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);

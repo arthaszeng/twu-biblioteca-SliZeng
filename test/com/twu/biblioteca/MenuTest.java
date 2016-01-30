@@ -63,7 +63,7 @@ public class MenuTest {
     @Test
     public void testAddOption() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
-        mainMenu.addOption(new CheckOutOption(console));
+        mainMenu.addOption(new CheckOutOption());
         mainMenu.showOptions();
 
         verify(console).print("[ L ] List Books\t");
@@ -74,7 +74,7 @@ public class MenuTest {
     @Test
     public void testCheckoutBook() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
-        mainMenu.addOption(new CheckOutOption(console));
+        mainMenu.addOption(new CheckOutOption());
 
         assertEquals(mainMenu.selectOption("c").getClass(), CheckOutOption.class);
     }
