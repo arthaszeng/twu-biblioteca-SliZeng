@@ -32,12 +32,8 @@ public class BibliotecaApp {
         ListIterator<Map.Entry<String,Book>> iterator = new ArrayList<Map.Entry<String,Book>>
                 (booksMap.entrySet()).listIterator(booksMap.size());
 
-
         while(iterator.hasPrevious()) {
             Book buffer = iterator.previous().getValue();
-            if (checkedBooksMap.containsKey(buffer.getIsbn())) {
-                continue;
-            }
             console.print(buffer.getName() + "\n");
         }
     }
@@ -46,25 +42,20 @@ public class BibliotecaApp {
         ListIterator<Map.Entry<String,Book>> iterator = new ArrayList<Map.Entry<String,Book>>
                 (booksMap.entrySet()).listIterator(booksMap.size());
 
-
-
         while(iterator.hasPrevious()) {
             Book buffer = iterator.previous().getValue();
-            if (checkedBooksMap.containsKey(buffer.getIsbn())) {
-                continue;
-            }
             console.print(BookFormat.detailsFormat(buffer) + "\n");
         }
     }
 
     public Boolean checkout(String isbn) {
-        if (booksMap.containsKey(isbn) && !checkedBooksMap.containsKey(isbn)) {
+        if (booksMap.containsKey(isbn)) {
             console.print("Thank you! Enjoy the book.\n");
         }else {
             console.print("That book is not available\n");
             return false;
         }
-        checkedBooksMap.put(isbn, booksMap.get(isbn));
+        this.booksMap.remove(isbn);
         return true;
     }
 
