@@ -1,0 +1,15 @@
+package Library;
+
+import java.util.LinkedHashMap;
+
+public class BooksRepository {
+    private static LinkedHashMap<String, Book> booksMap = new LinkedHashMap<String, Book>();
+
+    public void repositoryInit() {
+        booksMap.put("000001", new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01"));
+    }
+
+    public LinkedHashMap<String,Book> getBooks() {
+        return booksMap;
+    }
+}

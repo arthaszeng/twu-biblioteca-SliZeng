@@ -27,6 +27,11 @@ public class BibliotecaTest {
         verify(console).print("Welcome\n");
     }
 
+    @Test
+    public void testShowAllBooksName() throws Exception {
+        bibliotecaApp.showAllBooks();
 
+        verify(console).print("Lean Thinking\n");
+    }
 }
 

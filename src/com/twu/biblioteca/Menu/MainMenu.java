@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MainMenu {
     private final Console console;
-    private static List<String> options = Arrays.asList("List Books");
+    private static List<String> options = Arrays.asList("List Book");
 
     private void print(String message) {
         console.print(message);

@@ -29,6 +29,6 @@ public class MenuTest {
     public void testShowOptions() throws Exception {
         mainMenu.showOptions();
 
-        verify(console).print("[ L ] List Books\t");
+        verify(console).print("[ L ] List Book\t");
     }
 }
