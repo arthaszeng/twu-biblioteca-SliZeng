@@ -3,9 +3,8 @@ package Menu;
 import Biblioteca.BibliotecaApp;
 
 public class ListBooksOption extends Option {
-
-    public ListBooksOption(String name) {
-        super(name);
+    public ListBooksOption() {
+        this.name = "List Books";
     }
 
     @Override

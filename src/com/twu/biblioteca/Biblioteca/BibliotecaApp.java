@@ -6,7 +6,10 @@ import Library.Book;
 import Library.BooksRepository;
 import Menu.MainMenu;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.ListIterator;
+import java.util.Map;
 
 public class BibliotecaApp {
     private final Console console;
@@ -39,5 +42,12 @@ public class BibliotecaApp {
         while(iterator.hasPrevious()) {
             console.print(BookFormat.detailsFormat(iterator.previous().getValue()) + "\n");
         }
+    }
+
+
+    public static void main(String args[]) {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
+
+        bibliotecaApp.menu.selectOption("a").operate(bibliotecaApp);
     }
 }
