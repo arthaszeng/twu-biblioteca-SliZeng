@@ -24,4 +24,11 @@ public class MenuTest {
 
         verify(console).print(mainMenu.getClass().toString());
     }
+
+    @Test
+    public void testShowOptions() throws Exception {
+        mainMenu.showOptions();
+
+        verify(console).print("[ L ] List Books\n");
+    }
 }
