@@ -19,11 +19,6 @@ public class BibliotecaApp {
         booksMap = booksRepository.getBooks();
     }
 
-    public void showWelcome(){
-        console.print("Welcome\n");
-    }
-
-
     public void showAllBooks() {
         ListIterator<Map.Entry<String,Book>> iterator = new ArrayList<Map.Entry<String,Book>>
                 (booksMap.entrySet()).listIterator(booksMap.size());
@@ -32,4 +27,6 @@ public class BibliotecaApp {
             console.print(iterator.previous().getValue().getName() + "\n");
         }
     }
+
+
 }

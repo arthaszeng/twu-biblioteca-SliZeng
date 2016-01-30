@@ -9,9 +9,12 @@ import static org.junit.Assert.assertEquals;
 
 public class ConsoleTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    Console console;
+
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
+        console = new Console();
     }
 
     @Test
@@ -29,4 +32,12 @@ public class ConsoleTest {
 
         assertEquals("Welcome\n", outContent.toString());
     }
+
+    @Test
+    public void testShowWelcome() throws Exception {
+         console.showWelcome();
+
+        assertEquals("Welcome\n", outContent.toString());
+    }
+
 }

@@ -8,4 +8,10 @@ public class Console {
     public void println(String message) {
         System.out.println(message);
     }
+
+
+    public void showWelcome(){
+        print("Welcome\n");
+    }
+
 }

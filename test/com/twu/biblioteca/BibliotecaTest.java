@@ -19,14 +19,6 @@ public class BibliotecaTest {
         bibliotecaApp = new BibliotecaApp(console, mainMenu);
     }
 
-
-    @Test
-    public void testShowWelcome() throws Exception {
-        bibliotecaApp.showWelcome();
-
-        verify(console).print("Welcome\n");
-    }
-
     @Test
     public void testShowAllBooksName() throws Exception {
         bibliotecaApp.showAllBooks();

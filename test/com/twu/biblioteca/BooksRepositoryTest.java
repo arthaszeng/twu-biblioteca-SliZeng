@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BooksRepositoryTest {
     @Test
-    public void testGetBooks() throws Exception {
+    public void testGetBooksName() throws Exception {
         BooksRepository booksRepository = new BooksRepository();
         booksRepository.repositoryInit();
 
