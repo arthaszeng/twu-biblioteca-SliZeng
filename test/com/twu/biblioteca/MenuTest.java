@@ -70,7 +70,6 @@ public class MenuTest {
         verify(console).print("[ C ] Check out\t");
     }
 
-
     @Test
     public void testCheckoutBook() throws Exception {
         MainMenu mainMenu = new MainMenu(console);

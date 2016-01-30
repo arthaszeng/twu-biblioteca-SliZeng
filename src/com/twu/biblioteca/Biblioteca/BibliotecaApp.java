@@ -73,6 +73,9 @@ public class BibliotecaApp {
 
         bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
         bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
+    }
+
+    public Boolean returnBook(String isbn) {
 
     }
 }
