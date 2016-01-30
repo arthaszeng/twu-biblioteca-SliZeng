@@ -1,8 +1,11 @@
 import Console.Console;
 import Menu.MainMenu;
+import Menu.Option;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.isA;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -36,8 +39,9 @@ public class MenuTest {
     public void testSelectOption() throws Exception {
         String symble = "l";
 //        assertEquals("List Books", mainMenu.selectOption(symble.toUpperCase()));
-        mainMenu.selectOption(symble);
-        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
-        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
+        assertThat(mainMenu.selectOption(symble), isA(Option.class));
+
+//        verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
+//        verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");
     }
 }
