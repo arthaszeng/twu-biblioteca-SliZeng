@@ -1,5 +1,6 @@
 import Biblioteca.BibliotecaApp;
 import Console.Console;
+import Library.Book;
 import Menu.Menu.MainMenu;
 import Menu.Option.CheckOutOption;
 import Menu.Option.Option;
@@ -76,10 +77,9 @@ public class MenuTest {
     public void testCheckBook() throws Exception {
         MainMenu mainMenu = new MainMenu(console);
         mainMenu.addOption(new CheckOutOption());
+        Book book = new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01");
 
-        assertThat(mainMenu.selectOption("C"), isA(Option.class));
-        assertEquals(mainMenu.selectOption("C").getName(), "Check out");
-
-
+        mainMenu.checkout(book);
+        verify(console).print("Thank you! Enjoy the book.\n");
     }
 }
