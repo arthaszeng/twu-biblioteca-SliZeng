@@ -70,11 +70,11 @@ public class BibliotecaTest {
         bibliotecaApp.checkout("000001");
         bibliotecaApp.checkout("000002");
         Boolean flag = bibliotecaApp.returnBook("000001");
-
         bibliotecaApp.showAllBooks();
 
         assertTrue(flag);
-        verify(console).print("Thank you for returning the book\n");
+
+        verify(console).print("Thank you for returning the book.\n");
         verify(console).print("Lean Thinking\n");
         verify(console, times(0)).print("Clean Code\n");
     }
