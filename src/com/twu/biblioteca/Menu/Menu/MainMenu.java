@@ -31,7 +31,7 @@ public class MainMenu {
         for (Object o : optionsMap.entrySet()) {
             Map.Entry s = (Map.Entry)o;
             Option option = (Option) s.getValue();
-            print(MenuFormat.format((option.getName()) + "\t"));
+            print(MenuFormat.format(option) + "\t");
         }
         System.out.println();
     }
@@ -48,7 +48,7 @@ public class MainMenu {
     }
 
     public void addOption(Option option) {
-        optionsMap.put(String.valueOf(option.getName().charAt(0)).toUpperCase(), option);
+        optionsMap.put(String.valueOf(option.getKey().toUpperCase()), option);
     }
 
 }

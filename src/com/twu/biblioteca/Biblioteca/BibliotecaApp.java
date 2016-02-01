@@ -2,8 +2,11 @@ package Biblioteca;
 
 import Console.Console;
 import Format.BookFormat;
+import Format.MovieFormat;
 import Library.Book;
 import Library.BooksRepository;
+import Library.Movie;
+import Library.MoviesRepository;
 import Menu.Menu.MainMenu;
 
 import java.util.*;
@@ -11,8 +14,13 @@ import java.util.*;
 public class BibliotecaApp {
     private final Console console;
     public MainMenu menu;
+
     private LinkedHashMap<String, Book> currentBooksMap;
     private LinkedHashMap<String, Book> totalBooksMap;
+
+    private LinkedHashMap<String, Movie> currentMoviesMap;
+    private LinkedHashMap<String, Movie> totalMoviesMap;
+
     private Map<String, Book> checkedBooksMap;
 
     public BibliotecaApp(Console console, MainMenu mainMenu) {
@@ -20,9 +28,15 @@ public class BibliotecaApp {
         this.menu = mainMenu;
 
         BooksRepository booksRepository = new BooksRepository();
+        MoviesRepository moviesRepositroy = new MoviesRepository();
 
-        totalBooksMap = booksRepository.getBooks();
+        totalBooksMap = booksRepository.getMaps();
         currentBooksMap = (LinkedHashMap<String, Book>) totalBooksMap.clone();
+
+        totalMoviesMap = moviesRepositroy.getMap();
+        currentMoviesMap = (LinkedHashMap<String, Movie>) totalMoviesMap.clone();
+
+
         checkedBooksMap = new HashMap<String, Book>();
     }
 
@@ -70,10 +84,26 @@ public class BibliotecaApp {
         }
     }
 
+    public void showAllMovies() {
 
+        ListIterator<Map.Entry<String, Movie>> iterator = new ArrayList<Map.Entry<String, Movie>>
+                (currentMoviesMap.entrySet()).listIterator(currentMoviesMap.size());
 
+        while(iterator.hasPrevious()) {
+            Movie buffer = iterator.previous().getValue();
+            console.print(buffer.getName() + "\n");
+        }
+    }
 
+    public void showAllMOviesDetails() {
+        ListIterator<Map.Entry<String, Movie>> iterator = new ArrayList<Map.Entry<String, Movie>>
+                (currentMoviesMap.entrySet()).listIterator(currentMoviesMap.size());
 
+        while(iterator.hasPrevious()) {
+            Movie buffer = iterator.previous().getValue();
+            console.print(MovieFormat.format(buffer) + "\n");
+        }
+    }
 
 
 //    public static void main(String args[]) {

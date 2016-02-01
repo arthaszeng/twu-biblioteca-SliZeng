@@ -34,15 +34,15 @@ public class MenuTest {
     public void testShowOptions() throws Exception {
         mainMenu.showOptions();
 
-        verify(console).print("[ L ] List Books\t");
-
+        verify(console).print("[ b ] List Books\t");
+//        verify(console).print("[ m ] List Movies\t");
     }
 
     @Test
     public void testSelectOption() throws Exception {
-        assertThat(mainMenu.selectOption("l"), isA(Option.class));
+        assertThat(mainMenu.selectOption("b"), isA(Option.class));
 
-        assertEquals(mainMenu.selectOption("l").getName(), "List Books");
+        assertEquals(mainMenu.selectOption("b").getName(), "List Books");
     }
 
     @Test
@@ -54,7 +54,7 @@ public class MenuTest {
 
     @Test
     public void testOperate() throws Exception {
-        Option option = mainMenu.selectOption("l");
+        Option option = mainMenu.selectOption("b");
         option.operate(bibliotecaApp);
         verify(console).print("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001\n");
         verify(console).print("<<Clean Code>>\tJames P. Womack\t2003-06-01\t000002\n");

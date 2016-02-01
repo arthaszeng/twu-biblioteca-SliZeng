@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class CheckOutOption extends Option{
     public CheckOutOption() {
         this.name = "Check out";
+        this.key = "c";
     }
 
     @Override

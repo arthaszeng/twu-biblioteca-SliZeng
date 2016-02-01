@@ -10,7 +10,7 @@ public class BooksRepository {
         booksMap.put("000002", new Book("000002", "Clean Code", "James P. Womack", "2003-06-01"));
     }
 
-    public LinkedHashMap<String,Book> getBooks() {
+    public LinkedHashMap<String,Book> getMaps() {
         return booksMap;
     }
 }

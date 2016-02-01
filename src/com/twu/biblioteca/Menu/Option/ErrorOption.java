@@ -10,6 +10,7 @@ public class ErrorOption extends Option {
 
     public ErrorOption(Console console) {
         this.name = "ErrorOption";
+        this.key = "e";
         this.console = console;
     }
 

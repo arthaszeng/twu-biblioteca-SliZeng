@@ -1,3 +1,5 @@
+package BibliotecaApp;
+
 import Biblioteca.BibliotecaApp;
 import Console.Console;
 import Menu.Menu.MainMenu;
@@ -8,7 +10,7 @@ import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertFalse;
 import static org.mockito.Mockito.*;
 
-public class BibliotecaTest {
+public class BookModule {
 
     private Console console;
     private BibliotecaApp bibliotecaApp;

@@ -13,7 +13,7 @@ public class RepositoryTest {
     public void testGetBooksMap() throws Exception {
         BooksRepository booksRepository = new BooksRepository();
 
-        Map<String, Book> booksMap = booksRepository.getBooks();
+        Map<String, Book> booksMap = booksRepository.getMaps();
 
         assertEquals(booksMap.get("000001").getName(), "Lean Thinking");
         assertEquals(booksMap.get("000002").getName(), "Clean Code");
