@@ -74,7 +74,7 @@ public class BibliotecaApp {
             currentBooksMap.remove(key);
             Book book = totalBooksMap.get(key);
             currentVisitor.checkoutBooks(book);
-            addOperationLog(LogFormat.format(currentVisitor, book));
+            addOperationLog(LogFormat.checkFormat(currentVisitor, book));
         } else if (currentMoviesMap.containsKey(key)){
 
             console.print("Thank you! Enjoy the movie.\n");
@@ -82,7 +82,7 @@ public class BibliotecaApp {
             currentMoviesMap.remove(key);
             Movie movie = totalMoviesMap.get(key);
             currentVisitor.checkoutMovies(movie);
-            addOperationLog(LogFormat.format(currentVisitor, movie));
+            addOperationLog(LogFormat.checkFormat(currentVisitor, movie));
 
         }else{
 
@@ -97,11 +97,15 @@ public class BibliotecaApp {
         if (!currentBooksMap.containsKey(key) && totalBooksMap.containsKey(key)) {
             Book book = totalBooksMap.get(key);
             currentBooksMap.put(key, book);
+            currentVisitor.returnBook(book);
+            addOperationLog(LogFormat.returnFormat(currentVisitor, book));
             this.console.print("Thank you for returning the book.\n");
             return true;
         }else if(!currentMoviesMap.containsKey(key) && totalMoviesMap.containsKey(key)) {
             Movie movie = totalMoviesMap.get(key);
             currentMoviesMap.put(key, movie);
+            currentVisitor.returnMovie(movie);
+            addOperationLog(LogFormat.returnFormat(currentVisitor, movie));
             this.console.print("Thank you for returning the movie.\n");
             return true;
         }else {

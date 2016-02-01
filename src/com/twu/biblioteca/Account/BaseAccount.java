@@ -65,4 +65,12 @@ public class BaseAccount {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public void returnBook(Book book) {
+        checkedBooksMap.remove(book.getIsbn());
+    }
+
+    public void returnMovie(Movie movie) {
+        checkedMoviesMap.remove(movie.getImdb());
+    }
 }
