@@ -33,4 +33,16 @@ public class AccountSystem {
             return targetAccount;
         }
     }
+
+    public BaseAccount login() {
+        String email = console.scaner();
+        String password = console.scaner();
+
+        BaseAccount accountBuffer = checkAccount(email);
+        if (accountBuffer.getPassword().equals(password)) {
+            return accountBuffer;
+        }else {
+            return null;
+        }
+    }
 }
