@@ -5,12 +5,8 @@ import Format.BookFormat;
 import Library.Book;
 import Library.BooksRepository;
 import Menu.Menu.MainMenu;
-import Menu.Option.CheckOutOption;
-import Menu.Option.ErrorOption;
 
 import java.util.*;
-
-import static org.mockito.Mockito.mock;
 
 public class BibliotecaApp {
     private final Console console;
@@ -80,27 +76,27 @@ public class BibliotecaApp {
 
 
 
-    public static void main(String args[]) {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
-        Console console = mock(Console.class);
-
-        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-
-        bibliotecaApp.menu.addOption(new ErrorOption(console));
-        bibliotecaApp.menu.addOption(new CheckOutOption());
-
-        bibliotecaApp.currentBooksMap.remove("000001");
-        System.out.println(bibliotecaApp.totalBooksMap.containsKey("000001"));
-        System.out.println(bibliotecaApp.currentBooksMap.containsKey("000001"));
-
-//        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
+//    public static void main(String args[]) {
+//        BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
+//        Console console = mock(Console.class);
+//
 //        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
 //
-//        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
-//        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
+//        bibliotecaApp.menu.addOption(new ErrorOption(console));
+//        bibliotecaApp.menu.addOption(new CheckOutOption());
 //
-//        bibliotecaApp.returnBook("000001");
-//        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-    }
+//        bibliotecaApp.currentBooksMap.remove("000001");
+//        System.out.println(bibliotecaApp.totalBooksMap.containsKey("000001"));
+//        System.out.println(bibliotecaApp.currentBooksMap.containsKey("000001"));
+//
+////        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
+////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
+////
+////        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
+////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
+////
+////        bibliotecaApp.returnBook("000001");
+////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
+//    }
 
 }
