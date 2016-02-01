@@ -5,7 +5,7 @@ public class BaseAccount {
     private final String email;
     private String phoneNumber;
     private String password;
-    private String role;
+    private String role = "user";
 
     public BaseAccount(String name, String email, String phoneNumber, String password) {
         this.name = name;
