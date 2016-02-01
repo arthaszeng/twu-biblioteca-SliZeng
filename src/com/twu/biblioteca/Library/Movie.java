@@ -14,4 +14,24 @@ public class Movie {
         this.direcktor = direcktor;
         this.rating = rating;
     }
+
+    public String getImdb() {
+        return imdb;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPublishedYear() {
+        return publishedYear;
+    }
+
+    public String getDirecktor() {
+        return direcktor;
+    }
+
+    public String getRating() {
+        return rating;
+    }
 }

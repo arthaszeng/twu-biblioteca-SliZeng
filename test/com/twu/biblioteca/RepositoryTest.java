@@ -1,5 +1,7 @@
 import Library.Book;
 import Library.BooksRepository;
+import Library.Movie;
+import Library.MoviesRepository;
 import org.junit.Test;
 
 import java.util.Map;
@@ -19,6 +21,14 @@ public class RepositoryTest {
 
     @Test
     public void testGetMoviesMap() throws Exception {
+        MoviesRepository moviesRepository = new MoviesRepository();
 
+        Map<String, Movie> moviesMap = moviesRepository.getMap();
+        Movie moive = moviesMap.get("tt1187043");
+        assertEquals(moive.getName(), "3 idiots");
+        assertEquals(moive.getImdb(), "tt1187043");
+        assertEquals(moive.getPublishedYear(), "2009");
+        assertEquals(moive.getDirecktor(), "Rajkumar Hirani");
+        assertEquals(moive.getRating(), "9.1");
     }
 }
