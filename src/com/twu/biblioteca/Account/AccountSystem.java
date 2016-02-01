@@ -26,12 +26,7 @@ public class AccountSystem {
     }
 
     public BaseAccount checkAccount(String email) {
-        BaseAccount targetAccount = accountHashMap.get(email);
-        if (targetAccount == null){
-            return null;
-        }else {
-            return targetAccount;
-        }
+        return accountHashMap.get(email);
     }
 
     public BaseAccount login() {
@@ -39,10 +34,7 @@ public class AccountSystem {
         String password = console.scaner();
 
         BaseAccount accountBuffer = checkAccount(email);
-        if (accountBuffer.getPassword().equals(password)) {
-            return accountBuffer;
-        }else {
-            return null;
-        }
+
+        return accountBuffer == null || !password.equals(accountBuffer.getPassword())? null : accountBuffer;
     }
 }

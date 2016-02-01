@@ -3,12 +3,8 @@ package Account;
 import Console.Console;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.internal.matchers.Null;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class AccountSystemTest {
@@ -69,7 +65,7 @@ public class AccountSystemTest {
         when(console.scaner()).thenReturn("wrong");
 
         BaseAccount targetAccount = accountSystem.login();
-        assertEquals(targetAccount, is(Null.NULL));
+        assertEquals(targetAccount, null);
 
     }
 }
