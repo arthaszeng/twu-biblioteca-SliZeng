@@ -6,8 +6,8 @@ import Menu.Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class MovieModule {
@@ -20,6 +20,9 @@ public class MovieModule {
         console= mock(Console.class);
         MainMenu mainMenu = mock(MainMenu.class);
         bibliotecaApp = new BibliotecaApp(console, mainMenu);
+
+        when(console.scaner()).thenReturn("admin");
+        bibliotecaApp.accountSystem.login(bibliotecaApp);
     }
 
     @Test
@@ -40,6 +43,12 @@ public class MovieModule {
 
     @Test
     public void testCheckoutMovieSuccessful() throws Exception {
+        when(console.scaner()).thenReturn("admin");
+        bibliotecaApp.accountSystem.login(bibliotecaApp);
+
+        assertTrue(bibliotecaApp.isLogined());
+
+
         Boolean flag1 = bibliotecaApp.checkout("tt1187043");
         Boolean flag2 = bibliotecaApp.checkout("tt2338151");
 

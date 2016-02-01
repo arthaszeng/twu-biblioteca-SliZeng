@@ -4,6 +4,7 @@ import Library.Book;
 import Library.Movie;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class BaseAccount {
     private String name;
@@ -11,8 +12,8 @@ public class BaseAccount {
     private String phoneNumber;
     private String password;
     private String role = "user";
-    private HashMap<String, Book> checkedBooksMap = new HashMap<String, Book>();
-    private HashMap<String, Movie> checkedMoviesMap = new HashMap<String, Movie>();
+    private static Map<String, Book> checkedBooksMap = new HashMap<String, Book>();
+    private static Map<String, Movie> checkedMoviesMap = new HashMap<String, Movie>();
 
 
     public BaseAccount(String name, String email, String phoneNumber, String password) {

@@ -4,6 +4,7 @@ import Account.AccountSystem;
 import Account.BaseAccount;
 import Console.Console;
 import Format.BookFormat;
+import Format.LogFormat;
 import Format.MovieFormat;
 import Library.Book;
 import Library.BooksRepository;
@@ -18,6 +19,7 @@ public class BibliotecaApp {
     public MainMenu menu;
     public AccountSystem accountSystem;
     private BaseAccount currentVisitor = null;
+    private List<String> operationLog = new ArrayList<String>();
 
     private LinkedHashMap<String, Book> currentBooksMap;
     private LinkedHashMap<String, Book> totalBooksMap;
@@ -69,14 +71,17 @@ public class BibliotecaApp {
             console.print("Thank you! Enjoy the book.\n");
 
             currentBooksMap.remove(key);
-            currentVisitor.checkoutBooks(this.currentBooksMap.get(key));
-
+            Book book = totalBooksMap.get(key);
+            currentVisitor.checkoutBooks(book);
+            addOperationLog(LogFormat.format(currentVisitor, book));
         } else if (currentMoviesMap.containsKey(key)){
 
             console.print("Thank you! Enjoy the movie.\n");
 
-            this.currentMoviesMap.remove(key);
-            currentVisitor.checkoutMovies(this.currentMoviesMap.get(key));
+            currentMoviesMap.remove(key);
+            Movie movie = totalMoviesMap.get(key);
+            currentVisitor.checkoutMovies(movie);
+            addOperationLog(LogFormat.format(currentVisitor, movie));
 
         }else{
 
@@ -131,6 +136,10 @@ public class BibliotecaApp {
 
     public boolean isLogined () {
         return !(currentVisitor == null);
+    }
+
+    public void addOperationLog(String message) {
+
     }
 
     public static void main(String args[]) {

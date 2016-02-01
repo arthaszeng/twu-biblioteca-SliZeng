@@ -20,6 +20,8 @@ public class BookModule {
         console= mock(Console.class);
         MainMenu mainMenu = mock(MainMenu.class);
         bibliotecaApp = new BibliotecaApp(console, mainMenu);
+        when(console.scaner()).thenReturn("admin");
+        bibliotecaApp.accountSystem.login(bibliotecaApp);
     }
 
     @Test
