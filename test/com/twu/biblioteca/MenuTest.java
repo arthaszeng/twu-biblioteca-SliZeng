@@ -35,7 +35,7 @@ public class MenuTest {
         mainMenu.showOptions();
 
         verify(console).print("[ B ] List Books\t");
-//        verify(console).print("[ m ] List Movies\t");
+        verify(console).print("[ M ] List movies\t");
     }
 
     @Test

@@ -4,6 +4,7 @@ import Console.Console;
 import Format.MenuFormat;
 import Menu.Option.ErrorOption;
 import Menu.Option.ListBooksOption;
+import Menu.Option.ListMoviesOption;
 import Menu.Option.Option;
 
 import java.util.HashMap;
@@ -19,7 +20,8 @@ public class MainMenu {
 
     public MainMenu(Console console) {
         this.console = console;
-        optionsMap.put("B", new ListBooksOption());
+        addOption(new ListBooksOption());
+        addOption(new ListMoviesOption());
     }
 
     public void showCurrentMenu() {
