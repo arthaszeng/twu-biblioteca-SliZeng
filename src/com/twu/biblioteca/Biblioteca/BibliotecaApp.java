@@ -24,7 +24,6 @@ public class BibliotecaApp {
         this.menu = mainMenu;
 
         BooksRepository booksRepository = new BooksRepository();
-        booksRepository.repositoryInit();
 
         totalBooksMap = booksRepository.getBooks();
         currentBooksMap = (LinkedHashMap<String, Book>) totalBooksMap.clone();

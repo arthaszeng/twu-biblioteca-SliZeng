@@ -6,15 +6,19 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class BooksRepositoryTest {
+public class RepositoryTest {
     @Test
-    public void testGetBooksName() throws Exception {
+    public void testGetBooksMap() throws Exception {
         BooksRepository booksRepository = new BooksRepository();
-        booksRepository.repositoryInit();
 
         Map<String, Book> booksMap = booksRepository.getBooks();
 
         assertEquals(booksMap.get("000001").getName(), "Lean Thinking");
         assertEquals(booksMap.get("000002").getName(), "Clean Code");
+    }
+
+    @Test
+    public void testGetMoviesMap() throws Exception {
+
     }
 }

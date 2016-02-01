@@ -78,5 +78,20 @@ public class BibliotecaTest {
         verify(console).print("Lean Thinking\n");
         verify(console, times(0)).print("Clean Code\n");
     }
+
+    @Test
+    public void testReturnBookFailed() throws Exception {
+        bibliotecaApp.checkout("000001");
+        Boolean flag1 = bibliotecaApp.returnBook("000002");
+        Boolean flag2 = bibliotecaApp.returnBook("000003");
+        bibliotecaApp.showAllBooks();
+
+        assertFalse(flag1);
+        assertFalse(flag2);
+
+        verify(console, times(2)).print("That is not a valid book to return.\n");
+        verify(console).print("Clean Code\n");
+        verify(console, times(0)).print("Lean Thinking\n");
+    }
 }
 
