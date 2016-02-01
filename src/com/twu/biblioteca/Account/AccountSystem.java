@@ -1,5 +1,6 @@
 package Account;
 
+import Biblioteca.BibliotecaApp;
 import Console.Console;
 
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class AccountSystem {
         return accountHashMap.get(email);
     }
 
-    public BaseAccount login() {
+    public BaseAccount login(BibliotecaApp bibliotecaApp) {
         console.print("Please input you email.");
         String email = console.scaner();
         console.print("Please input you password.");
@@ -43,6 +44,7 @@ public class AccountSystem {
         }
         else {
             console.print("Login successfully.");
+            bibliotecaApp.setCurrentVisitor(accountBuffer);
             return accountBuffer;
         }
     }

@@ -1,5 +1,7 @@
 package Biblioteca;
 
+import Account.AccountSystem;
+import Account.BaseAccount;
 import Console.Console;
 import Format.BookFormat;
 import Format.MovieFormat;
@@ -14,6 +16,8 @@ import java.util.*;
 public class BibliotecaApp {
     private final Console console;
     public MainMenu menu;
+    public AccountSystem accountSystem;
+    private BaseAccount currentVisitor = null;
 
     private LinkedHashMap<String, Book> currentBooksMap;
     private LinkedHashMap<String, Book> totalBooksMap;
@@ -36,6 +40,7 @@ public class BibliotecaApp {
         totalMoviesMap = moviesRepositroy.getMap();
         currentMoviesMap = (LinkedHashMap<String, Movie>) totalMoviesMap.clone();
 
+        accountSystem = new AccountSystem(this.console);
 
         checkedBooksMap = new HashMap<String, Book>();
     }
@@ -114,28 +119,17 @@ public class BibliotecaApp {
         }
     }
 
+    public void setCurrentVisitor(BaseAccount currentVisitor) {
+        this.currentVisitor = currentVisitor;
+    }
 
-//    public static void main(String args[]) {
-//        BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
-//        Console console = mock(Console.class);
-//
-//        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-//
-//        bibliotecaApp.menu.addOption(new ErrorOption(console));
-//        bibliotecaApp.menu.addOption(new CheckOutOption());
-//
-//        bibliotecaApp.currentBooksMap.remove("000001");
-//        System.out.println(bibliotecaApp.totalBooksMap.containsKey("000001"));
-//        System.out.println(bibliotecaApp.currentBooksMap.containsKey("000001"));
-//
-////        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
-////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-////
-////        bibliotecaApp.menu.selectOption("c").operate(bibliotecaApp);
-////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-////
-////        bibliotecaApp.returnBook("000001");
-////        bibliotecaApp.menu.selectOption("l").operate(bibliotecaApp);
-//    }
+    public boolean isLogined () {
+        return !(currentVisitor == null);
+    }
+
+    public static void main(String args[]) {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
+        bibliotecaApp.accountSystem.login(bibliotecaApp);
+    }
 
 }

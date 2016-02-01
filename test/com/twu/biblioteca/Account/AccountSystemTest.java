@@ -1,6 +1,8 @@
 package Account;
 
+import Biblioteca.BibliotecaApp;
 import Console.Console;
+import Menu.Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,22 +52,28 @@ public class AccountSystemTest {
 
     @Test
     public void testLoginSuccessfully() throws Exception {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(console, new MainMenu(console));
+
         when(console.scaner()).thenReturn("admin");
 
-        BaseAccount targetAccount = accountSystem.login();
+        BaseAccount targetAccount = accountSystem.login(bibliotecaApp);
         assertEquals("admin", targetAccount.getEmail());
         assertEquals("admin", targetAccount.getName());
         assertEquals("admin", targetAccount.getPassword());
         assertEquals("admin", targetAccount.getPhoneNumber());
         assertEquals("user", targetAccount.getRole());
 
+        assertTrue(bibliotecaApp.isLogined());
     }
+
     @Test
     public void testLoginFailed() throws Exception {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(console, new MainMenu(console));
+
         when(console.scaner()).thenReturn("wrong");
 
-        BaseAccount targetAccount = accountSystem.login();
+        BaseAccount targetAccount = accountSystem.login(bibliotecaApp);
         assertEquals(targetAccount, null);
-
+        assertFalse(bibliotecaApp.isLogined());
     }
 }
