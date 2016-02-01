@@ -62,7 +62,7 @@ public class BookModule {
         assertFalse(flag1);
         assertFalse(flag2);
         verify(console, times(0)).print("Thank you! Enjoy the book.\n");
-        verify(console, times(2)).print("That book is not available\n");
+        verify(console, times(2)).print("That is not available\n");
         verify(console, times(1)).print("Lean Thinking\n");
         verify(console, times(1)).print("Clean Code\n");
     }
@@ -91,7 +91,7 @@ public class BookModule {
         assertFalse(flag1);
         assertFalse(flag2);
 
-        verify(console, times(2)).print("That is not a valid book to return.\n");
+        verify(console, times(2)).print("That is not a valid book or movie to return.\n");
         verify(console).print("Clean Code\n");
         verify(console, times(0)).print("Lean Thinking\n");
     }

@@ -60,26 +60,35 @@ public class BibliotecaApp {
         }
     }
 
-    public Boolean checkout(String isbn) {
-        if (currentBooksMap.containsKey(isbn)) {
+    public Boolean checkout(String key) {
+        if (currentBooksMap.containsKey(key)) {
             console.print("Thank you! Enjoy the book.\n");
-        }else {
-            console.print("That book is not available\n");
+            this.currentBooksMap.remove(key);
+
+        } else if (currentMoviesMap.containsKey(key)){
+            console.print("Thank you! Enjoy the movie.\n");
+            this.currentMoviesMap.remove(key);
+        }else{
+            console.print("That is not available\n");
             return false;
         }
-        this.currentBooksMap.remove(isbn);
+
         return true;
     }
 
-    public Boolean returnBook(String isbn) {
-
-       if (!currentBooksMap.containsKey(isbn) && totalBooksMap.containsKey(isbn)) {
-            Book book = totalBooksMap.get(isbn);
-            currentBooksMap.put(isbn, book);
+    public Boolean returnBook(String key) {
+        if (!currentBooksMap.containsKey(key) && totalBooksMap.containsKey(key)) {
+            Book book = totalBooksMap.get(key);
+            currentBooksMap.put(key, book);
             this.console.print("Thank you for returning the book.\n");
             return true;
+        }else if(!currentMoviesMap.containsKey(key) && totalMoviesMap.containsKey(key)) {
+            Movie movie = totalMoviesMap.get(key);
+            currentMoviesMap.put(key, movie);
+            this.console.print("Thank you for returning the movie.\n");
+            return true;
         }else {
-            this.console.print("That is not a valid book to return.\n");
+            this.console.print("That is not a valid book or movie to return.\n");
             return false;
         }
     }
