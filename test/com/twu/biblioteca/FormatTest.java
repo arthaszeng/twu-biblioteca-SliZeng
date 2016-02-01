@@ -15,7 +15,7 @@ public class FormatTest {
     @Test
     public void testBookDetailsFormat() throws Exception {
         Book book = new Book("000001", "Lean Thinking", "James P. Womack", "2003-06-01");
-        assertEquals("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001", BookFormat.detailsFormat(book));
+        assertEquals("<<Lean Thinking>>\tJames P. Womack\t2003-06-01\t000001", BookFormat.format(book));
 
     }
 }

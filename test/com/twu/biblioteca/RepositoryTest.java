@@ -28,7 +28,7 @@ public class RepositoryTest {
         assertEquals(moive.getName(), "3 idiots");
         assertEquals(moive.getImdb(), "tt1187043");
         assertEquals(moive.getPublishedYear(), "2009");
-        assertEquals(moive.getDirecktor(), "Rajkumar Hirani");
+        assertEquals(moive.getDirector(), "Rajkumar Hirani");
         assertEquals(moive.getRating(), "9.1");
     }
 }

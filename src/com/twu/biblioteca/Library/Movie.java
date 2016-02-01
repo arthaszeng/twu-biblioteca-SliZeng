@@ -27,7 +27,7 @@ public class Movie {
         return publishedYear;
     }
 
-    public String getDirecktor() {
+    public String getDirector() {
         return direcktor;
     }
 

@@ -46,7 +46,7 @@ public class BibliotecaApp {
 
         while(iterator.hasPrevious()) {
             Book buffer = iterator.previous().getValue();
-            console.print(BookFormat.detailsFormat(buffer) + "\n");
+            console.print(BookFormat.format(buffer) + "\n");
         }
     }
 
