@@ -15,7 +15,7 @@ public class ErrorOption extends Option {
     }
 
     @Override
-    public void operate(BibliotecaApp bibliotecaApp) {
+    public boolean operate(BibliotecaApp bibliotecaApp) {
         Scanner scanner = new Scanner(System.in);
 
         console.print("Selected an invalid option. Please re-enter\n");
@@ -23,5 +23,6 @@ public class ErrorOption extends Option {
 
         Option option = bibliotecaApp.menu.selectOption(String.valueOf(buf));
         option.operate(bibliotecaApp);
+        return true;
     }
 }

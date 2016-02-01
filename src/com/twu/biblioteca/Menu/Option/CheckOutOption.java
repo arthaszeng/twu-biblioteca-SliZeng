@@ -11,10 +11,15 @@ public class CheckOutOption extends Option{
     }
 
     @Override
-    public void operate(BibliotecaApp bibliotecaApp) {
-        System.out.println("Please input the ISBN");
-        Scanner scanner = new Scanner(System.in);
-        String isbn = scanner.next();
-        bibliotecaApp.checkout(isbn);
+    public boolean operate(BibliotecaApp bibliotecaApp) {
+        if (!bibliotecaApp.isLogined()){
+            return false;
+        }else {
+            System.out.println("Please input the ISBN or IMDB");
+            Scanner scanner = new Scanner(System.in);
+            String isbn = scanner.next();
+            bibliotecaApp.checkout(isbn);
+            return true;
+        }
     }
 }

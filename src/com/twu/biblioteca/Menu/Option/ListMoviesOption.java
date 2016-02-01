@@ -9,7 +9,8 @@ public class ListMoviesOption extends Option {
     }
 
     @Override
-    public void operate(BibliotecaApp bibliotecaApp) {
+    public boolean operate(BibliotecaApp bibliotecaApp) {
         bibliotecaApp.showAllMOviesDetails();
+        return true;
     }
 }

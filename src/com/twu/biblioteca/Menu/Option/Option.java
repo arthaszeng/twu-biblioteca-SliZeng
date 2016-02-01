@@ -14,8 +14,8 @@ public class Option {
         return name;
     }
 
-    public void operate(BibliotecaApp bibliotecaApp) {
-
+    public boolean operate(BibliotecaApp bibliotecaApp) {
+        return true;
     }
 
 }

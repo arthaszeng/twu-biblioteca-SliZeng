@@ -9,8 +9,9 @@ public class ListBooksOption extends Option {
     }
 
     @Override
-    public void operate(BibliotecaApp bibliotecaApp) {
+    public boolean operate(BibliotecaApp bibliotecaApp) {
         bibliotecaApp.showAllBooksDetails();
+        return true;
     }
 }
 
