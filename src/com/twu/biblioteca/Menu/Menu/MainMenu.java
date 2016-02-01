@@ -45,10 +45,6 @@ public class MainMenu {
         return selectedOption == null ? new ErrorOption(console) : selectedOption;
     }
 
-//    private Option checkOption(Option selectedOption) {
-//        return selectedOption == null ? new ErrorOption(console) : selectedOption;
-//    }
-
     public void addOption(Option option) {
         optionsMap.put(String.valueOf(option.getKey().toUpperCase()), option);
     }
