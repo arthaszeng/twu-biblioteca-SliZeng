@@ -83,10 +83,20 @@ public class AccountSystemTest {
 
         assertEquals("user" ,targetAccount.getRole());
 
-
         accountSystem.levelUp(targetAccount);
 
         assertEquals("librarian" ,targetAccount.getRole());
 
+    }
+
+    @Test
+    public void testLevelUpFailed() throws Exception {
+        BaseAccount targetAccount = accountSystem.checkAccount("admin");
+
+        assertEquals("user" ,targetAccount.getRole());
+        assertTrue(accountSystem.levelUp(targetAccount));
+
+        assertEquals("librarian" ,targetAccount.getRole());
+        assertFalse(accountSystem.levelUp(targetAccount));
     }
 }
