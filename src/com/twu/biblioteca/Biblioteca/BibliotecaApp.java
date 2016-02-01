@@ -11,6 +11,7 @@ import Library.BooksRepository;
 import Library.Movie;
 import Library.MoviesRepository;
 import Menu.Menu.MainMenu;
+import Menu.Option.CheckOutOption;
 
 import java.util.*;
 
@@ -138,13 +139,29 @@ public class BibliotecaApp {
         return !(currentVisitor == null);
     }
 
-    public void addOperationLog(String message) {
+    public void addOperationLog (String message) {
+        operationLog.add(message);
+    }
 
+    public boolean showOperationLog () {
+        if (!isLogined() || !currentVisitor.getRole().equals("librarian")) {
+            return false;
+        }else {
+            for (Iterator i = operationLog.iterator(); i.hasNext(); ){
+                console.print(i.next().toString());
+            }
+            return true;
+        }
     }
 
     public static void main(String args[]) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(new Console(), new MainMenu(new Console()));
         bibliotecaApp.accountSystem.login(bibliotecaApp);
+        bibliotecaApp.menu.addOption(new CheckOutOption());
+        bibliotecaApp.menu.showOptions();
+        bibliotecaApp.menu.selectOption(bibliotecaApp.console.scaner()).operate(bibliotecaApp);
+        bibliotecaApp.menu.selectOption(bibliotecaApp.console.scaner()).operate(bibliotecaApp);
+        bibliotecaApp.showOperationLog();
     }
 
 }
