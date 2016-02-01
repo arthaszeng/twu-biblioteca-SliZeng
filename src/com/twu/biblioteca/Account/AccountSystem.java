@@ -30,11 +30,20 @@ public class AccountSystem {
     }
 
     public BaseAccount login() {
+        console.print("Please input you email.");
         String email = console.scaner();
+        console.print("Please input you password.");
         String password = console.scaner();
 
         BaseAccount accountBuffer = checkAccount(email);
 
-        return accountBuffer == null || !password.equals(accountBuffer.getPassword())? null : accountBuffer;
+        if (accountBuffer == null || !password.equals(accountBuffer.getPassword())) {
+            console.print("Login failed.");
+            return null;
+        }
+        else {
+            console.print("Login successfully.");
+            return accountBuffer;
+        }
     }
 }
