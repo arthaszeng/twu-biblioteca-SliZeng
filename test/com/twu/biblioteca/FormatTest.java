@@ -3,6 +3,8 @@ import Format.MenuFormat;
 import Format.MovieFormat;
 import Library.Book;
 import Library.Movie;
+import Menu.Option.ListBooksOption;
+import Menu.Option.Option;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +13,8 @@ public class FormatTest {
 
     @Test
     public void testMenuFormat() throws Exception {
-        assertEquals("[ L ] List Book", MenuFormat.format("List Book"));
+        Option option = new ListBooksOption();
+        assertEquals("[ B ] List Books", MenuFormat.format(option));
     }
 
     @Test
@@ -24,6 +27,6 @@ public class FormatTest {
     @Test
     public void testMovieFormat() throws Exception {
         Movie movie = new Movie("tt1187043", "3 idiots", "2009", "Rajkumar Hirani", "9.1");
-        assertEquals("<<3 idiots>>\t2009\tRajkumar Hirani\t9.1\ttt1187043\n", MovieFormat.format(movie));
+        assertEquals("<<3 idiots>>\t2009\tRajkumar Hirani\t9.1\ttt1187043", MovieFormat.format(movie));
     }
 }

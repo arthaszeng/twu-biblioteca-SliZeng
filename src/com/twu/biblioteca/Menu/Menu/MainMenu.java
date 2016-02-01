@@ -19,7 +19,7 @@ public class MainMenu {
 
     public MainMenu(Console console) {
         this.console = console;
-        optionsMap.put("L", new ListBooksOption());
+        optionsMap.put("B", new ListBooksOption());
     }
 
     public void showCurrentMenu() {
@@ -37,15 +37,15 @@ public class MainMenu {
     }
 
     public Option selectOption(final String message) {
-        String symble = message.toUpperCase();
+        String key = message.toUpperCase();
         Option selectedOption;
-        selectedOption = optionsMap.get(symble);
-        return checkOption(selectedOption);
-    }
-
-    private Option checkOption(Option selectedOption) {
+        selectedOption = optionsMap.get(key);
         return selectedOption == null ? new ErrorOption(console) : selectedOption;
     }
+
+//    private Option checkOption(Option selectedOption) {
+//        return selectedOption == null ? new ErrorOption(console) : selectedOption;
+//    }
 
     public void addOption(Option option) {
         optionsMap.put(String.valueOf(option.getKey().toUpperCase()), option);

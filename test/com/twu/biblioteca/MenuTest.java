@@ -34,7 +34,7 @@ public class MenuTest {
     public void testShowOptions() throws Exception {
         mainMenu.showOptions();
 
-        verify(console).print("[ b ] List Books\t");
+        verify(console).print("[ B ] List Books\t");
 //        verify(console).print("[ m ] List Movies\t");
     }
 
@@ -42,14 +42,14 @@ public class MenuTest {
     public void testSelectOption() throws Exception {
         assertThat(mainMenu.selectOption("b"), isA(Option.class));
 
-        assertEquals(mainMenu.selectOption("b").getName(), "List Books");
+        assertEquals("List Books", mainMenu.selectOption("b").getName());
     }
 
     @Test
     public void testInvalidOption() throws Exception {
 
         assertThat(mainMenu.selectOption("a"), isA(Option.class));
-        assertEquals("ErrorOption", mainMenu.selectOption("b").getName());
+        assertEquals("ErrorOption", mainMenu.selectOption("a").getName());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class MenuTest {
         mainMenu.addOption(new CheckOutOption());
         mainMenu.showOptions();
 
-        verify(console).print("[ L ] List Books\t");
+        verify(console).print("[ B ] List Books\t");
         verify(console).print("[ C ] Check out\t");
     }
 
