@@ -2,7 +2,6 @@ package Account;
 
 import Library.Book;
 import Library.Movie;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,5 +48,21 @@ public class BaseAccount {
 
     public void checkoutMovies(Movie movie) {
         checkedMoviesMap.put(movie.getImdb(), movie);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

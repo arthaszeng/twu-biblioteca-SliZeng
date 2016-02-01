@@ -5,6 +5,7 @@ import Console.Console;
 
 public class ReturnOption extends Option{
     private Console console;
+
     public ReturnOption() {
         this.key = "R";
         this.name = "Return books or movies";

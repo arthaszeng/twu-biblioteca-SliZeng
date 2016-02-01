@@ -76,4 +76,17 @@ public class AccountSystemTest {
         assertEquals(targetAccount, null);
         assertFalse(bibliotecaApp.isLogined());
     }
+
+    @Test
+    public void testLevelUpSuccessful() throws Exception {
+        BaseAccount targetAccount = accountSystem.checkAccount("admin");
+
+        assertEquals("user" ,targetAccount.getRole());
+
+
+        accountSystem.levelUp(targetAccount);
+
+        assertEquals("librarian" ,targetAccount.getRole());
+
+    }
 }

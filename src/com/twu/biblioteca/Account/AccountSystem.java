@@ -2,7 +2,6 @@ package Account;
 
 import Biblioteca.BibliotecaApp;
 import Console.Console;
-
 import java.util.HashMap;
 
 public class AccountSystem {
@@ -46,6 +45,15 @@ public class AccountSystem {
             console.print("Login successfully.");
             bibliotecaApp.setCurrentVisitor(accountBuffer);
             return accountBuffer;
+        }
+    }
+
+    public boolean levelUp(BaseAccount targetAccount) {
+        if (targetAccount == null || targetAccount.getRole().equals("librarian")) {
+            return false;
+        }else {
+            targetAccount.setRole("librarian");
+            return true;
         }
     }
 }
