@@ -16,6 +16,8 @@ public class ReturnOption extends Option{
         if (bibliotecaApp.isLogined()) {
             bibliotecaApp.returnBook(console.scaner());
             return true;
-        }else return false;
+        }else {
+            return false;
+        }
     }
 }

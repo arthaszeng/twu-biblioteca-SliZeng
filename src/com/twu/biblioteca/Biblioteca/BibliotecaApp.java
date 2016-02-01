@@ -25,7 +25,6 @@ public class BibliotecaApp {
     private LinkedHashMap<String, Movie> currentMoviesMap;
     private LinkedHashMap<String, Movie> totalMoviesMap;
 
-    private Map<String, Book> checkedBooksMap;
 
     public BibliotecaApp(Console console, MainMenu mainMenu) {
         this.console = console;
@@ -42,7 +41,6 @@ public class BibliotecaApp {
 
         accountSystem = new AccountSystem(this.console);
 
-        checkedBooksMap = new HashMap<String, Book>();
     }
 
     public void showAllBooks() {
@@ -67,13 +65,21 @@ public class BibliotecaApp {
 
     public Boolean checkout(String key) {
         if (currentBooksMap.containsKey(key)) {
+
             console.print("Thank you! Enjoy the book.\n");
-            this.currentBooksMap.remove(key);
+
+            currentBooksMap.remove(key);
+            currentVisitor.checkoutBooks(this.currentBooksMap.get(key));
 
         } else if (currentMoviesMap.containsKey(key)){
+
             console.print("Thank you! Enjoy the movie.\n");
+
             this.currentMoviesMap.remove(key);
+            currentVisitor.checkoutMovies(this.currentMoviesMap.get(key));
+
         }else{
+
             console.print("That is not available\n");
             return false;
         }

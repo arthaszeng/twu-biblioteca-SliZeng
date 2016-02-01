@@ -1,11 +1,19 @@
 package Account;
 
+import Library.Book;
+import Library.Movie;
+
+import java.util.HashMap;
+
 public class BaseAccount {
     private String name;
     private final String email;
     private String phoneNumber;
     private String password;
     private String role = "user";
+    private HashMap<String, Book> checkedBooksMap = new HashMap<String, Book>();
+    private HashMap<String, Movie> checkedMoviesMap = new HashMap<String, Movie>();
+
 
     public BaseAccount(String name, String email, String phoneNumber, String password) {
         this.name = name;
@@ -32,5 +40,13 @@ public class BaseAccount {
 
     public String getRole() {
         return role;
+    }
+
+    public void checkoutBooks(Book book) {
+        checkedBooksMap.put(book.getIsbn(), book);
+    }
+
+    public void checkoutMovies(Movie movie) {
+        checkedMoviesMap.put(movie.getImdb(), movie);
     }
 }
