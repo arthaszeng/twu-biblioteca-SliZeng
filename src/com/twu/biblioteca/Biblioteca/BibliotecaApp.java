@@ -16,7 +16,7 @@ import Menu.Option.CheckOutOption;
 import java.util.*;
 
 public class BibliotecaApp {
-    private final Console console;
+    public final Console console;
     public MainMenu menu;
     public AccountSystem accountSystem;
     private BaseAccount currentVisitor = null;
@@ -42,7 +42,7 @@ public class BibliotecaApp {
         totalMoviesMap = moviesRepositroy.getMap();
         currentMoviesMap = (LinkedHashMap<String, Movie>) totalMoviesMap.clone();
 
-        accountSystem = new AccountSystem(this.console);
+        accountSystem = new AccountSystem(console);
 
     }
 
@@ -75,6 +75,7 @@ public class BibliotecaApp {
             Book book = totalBooksMap.get(key);
             currentVisitor.checkoutBooks(book);
             addOperationLog(LogFormat.checkFormat(currentVisitor, book));
+
         } else if (currentMoviesMap.containsKey(key)){
 
             console.print("Thank you! Enjoy the movie.\n");
